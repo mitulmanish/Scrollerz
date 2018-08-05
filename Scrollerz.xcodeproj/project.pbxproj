@@ -14,6 +14,13 @@
 		013EF9C521158DE900E19327 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 013EF9C321158DE900E19327 /* LaunchScreen.storyboard */; };
 		013EF9D021158DE900E19327 /* ScrollerzTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9CF21158DE900E19327 /* ScrollerzTests.swift */; };
 		013EF9DB21158DE900E19327 /* ScrollerzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9DA21158DE900E19327 /* ScrollerzUITests.swift */; };
+		013EF9E921158F6A00E19327 /* ScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9E821158F6A00E19327 /* ScrollViewController.swift */; };
+		013EF9EB2115A0D300E19327 /* AViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9EA2115A0D300E19327 /* AViewController.swift */; };
+		013EF9ED2115A0F700E19327 /* BViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9EC2115A0F700E19327 /* BViewController.swift */; };
+		013EF9EF2115A11900E19327 /* CViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9EE2115A11900E19327 /* CViewController.swift */; };
+		013EF9F12116B2A100E19327 /* DViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9F02116B2A100E19327 /* DViewController.swift */; };
+		013EF9F32116B68C00E19327 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9F22116B68C00E19327 /* MenuCell.swift */; };
+		013EF9F52116B6A600E19327 /* HorizontalMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013EF9F42116B6A600E19327 /* HorizontalMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +54,13 @@
 		013EF9D621158DE900E19327 /* ScrollerzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrollerzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		013EF9DA21158DE900E19327 /* ScrollerzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollerzUITests.swift; sourceTree = "<group>"; };
 		013EF9DC21158DE900E19327 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		013EF9E821158F6A00E19327 /* ScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewController.swift; sourceTree = "<group>"; };
+		013EF9EA2115A0D300E19327 /* AViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AViewController.swift; sourceTree = "<group>"; };
+		013EF9EC2115A0F700E19327 /* BViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BViewController.swift; sourceTree = "<group>"; };
+		013EF9EE2115A11900E19327 /* CViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CViewController.swift; sourceTree = "<group>"; };
+		013EF9F02116B2A100E19327 /* DViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DViewController.swift; sourceTree = "<group>"; };
+		013EF9F22116B68C00E19327 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		013EF9F42116B6A600E19327 /* HorizontalMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +117,9 @@
 				013EF9C121158DE900E19327 /* Assets.xcassets */,
 				013EF9C321158DE900E19327 /* LaunchScreen.storyboard */,
 				013EF9C621158DE900E19327 /* Info.plist */,
+				013EF9E821158F6A00E19327 /* ScrollViewController.swift */,
+				013EF9F62116BBEB00E19327 /* Scrolling VIews */,
+				013EF9F72116BC0100E19327 /* Horozontal Menu */,
 			);
 			path = Scrollerz;
 			sourceTree = "<group>";
@@ -123,6 +140,26 @@
 				013EF9DC21158DE900E19327 /* Info.plist */,
 			);
 			path = ScrollerzUITests;
+			sourceTree = "<group>";
+		};
+		013EF9F62116BBEB00E19327 /* Scrolling VIews */ = {
+			isa = PBXGroup;
+			children = (
+				013EF9EA2115A0D300E19327 /* AViewController.swift */,
+				013EF9EC2115A0F700E19327 /* BViewController.swift */,
+				013EF9EE2115A11900E19327 /* CViewController.swift */,
+				013EF9F02116B2A100E19327 /* DViewController.swift */,
+			);
+			path = "Scrolling VIews";
+			sourceTree = "<group>";
+		};
+		013EF9F72116BC0100E19327 /* Horozontal Menu */ = {
+			isa = PBXGroup;
+			children = (
+				013EF9F22116B68C00E19327 /* MenuCell.swift */,
+				013EF9F42116B6A600E19327 /* HorizontalMenu.swift */,
+			);
+			path = "Horozontal Menu";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +293,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				013EF9EB2115A0D300E19327 /* AViewController.swift in Sources */,
 				013EF9BD21158DDD00E19327 /* ViewController.swift in Sources */,
+				013EF9E921158F6A00E19327 /* ScrollViewController.swift in Sources */,
+				013EF9ED2115A0F700E19327 /* BViewController.swift in Sources */,
+				013EF9F12116B2A100E19327 /* DViewController.swift in Sources */,
+				013EF9EF2115A11900E19327 /* CViewController.swift in Sources */,
+				013EF9F32116B68C00E19327 /* MenuCell.swift in Sources */,
+				013EF9F52116B6A600E19327 /* HorizontalMenu.swift in Sources */,
 				013EF9BB21158DDD00E19327 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -435,6 +479,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R294DGM4NL;
 				INFOPLIST_FILE = Scrollerz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -453,6 +498,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R294DGM4NL;
 				INFOPLIST_FILE = Scrollerz/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

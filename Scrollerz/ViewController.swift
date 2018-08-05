@@ -1,20 +1,47 @@
-//
-//  ViewController.swift
-//  Scrollerz
-//
-//  Created by Mitul Manish on 4/8/18.
-//  Copyright © 2018 Mitul Manish. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var scrollContainerView: UIView!
+    
+    var scrollViewController: ScrollViewController!
+    
+    let menuView: HorizontalMenu = {
+        return HorizontalMenu(frame: .zero)
+    }()
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        setupMenuView()
     }
-
-
+    
+    func setupMenuView() {
+        menuView.menuSelectionDelegate = self
+        menuView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(menuView)
+        [menuView.topAnchor.constraint(equalTo: view.topAnchor),
+        menuView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        menuView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+        menuView.bottomAnchor.constraint(equalTo: scrollContainerView.topAnchor)
+            ].forEach { $0.isActive = true}
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "scrollIdentifier", let scrollVC = segue.destination as? ScrollViewController else {
+            return
+        }
+        scrollViewController = scrollVC
+    }
 }
 
+
+extension ViewController: MenuSelectionDelegate {
+    func didSelectMenu(at index: Int) {
+        guard let scrollVC = scrollViewController else { return }
+        scrollVC.selectView(at: index)
+    }
+}
