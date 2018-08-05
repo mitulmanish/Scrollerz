@@ -8,8 +8,7 @@ class HorizontalMenu: UIView, UICollectionViewDataSource, UICollectionViewDelega
     
     weak var menuSelectionDelegate: MenuSelectionDelegate?
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        menuSelectionDelegate?.didSelectMenu(at: indexPath.item)
+    func animateSelectionIndicator(_ indexPath: IndexPath) {
         let distance = CGFloat(indexPath.item) * frame.width / CGFloat(menuData.count)
         selectionViewLeftAnchor?.constant = distance
         UIView.animate(withDuration: 0.5,
@@ -20,6 +19,11 @@ class HorizontalMenu: UIView, UICollectionViewDataSource, UICollectionViewDelega
                        animations: { [weak self] in
                         self?.layoutIfNeeded()
         })
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        menuSelectionDelegate?.didSelectMenu(at: indexPath.item)
+        animateSelectionIndicator(indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -30,6 +30,11 @@ class ViewController: UIViewController {
             ].forEach { $0.isActive = true}
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        scrollViewController.scrollViewSelectionDelegate = self
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "scrollIdentifier", let scrollVC = segue.destination as? ScrollViewController else {
             return
@@ -43,5 +48,16 @@ extension ViewController: MenuSelectionDelegate {
     func didSelectMenu(at index: Int) {
         guard let scrollVC = scrollViewController else { return }
         scrollVC.selectView(at: index)
+    }
+}
+
+extension ViewController: ScrollViewSelectionDelegate {
+    func didScrollToViewCntroller(with index: Int) {
+        let indexPath = IndexPath(row: index, section: 0)
+        menuView.animateSelectionIndicator(indexPath)
+        menuView.menuCollectionView.selectItem(at: indexPath,
+                                               animated: true,
+                                               scrollPosition: .centeredHorizontally
+        )
     }
 }

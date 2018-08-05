@@ -27,6 +27,8 @@ class ScrollViewController: UIViewController {
     var pageSize: CGSize {
         return scrollView.frame.size
     }
+    
+    weak var scrollViewSelectionDelegate: ScrollViewSelectionDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +40,7 @@ class ScrollViewController: UIViewController {
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.delegate = self
         scrollView.isPagingEnabled = true
-        scrollView.isScrollEnabled = false
+        scrollView.isScrollEnabled = true
         self.view = scrollView
     }
     
@@ -80,8 +82,36 @@ class ScrollViewController: UIViewController {
         let frame = self.frame(for: index)
         scrollView.setContentOffset(frame.origin, animated: false)
     }
+    
+    public func isControllerVisible(_ controller: UIViewController?) -> Bool {
+        guard controller != nil else { return false }
+        for i in 0..<scrollingControllers.count {
+            if scrollingControllers[i] == controller {
+                let controllerFrame = frame(for: i)
+                return controllerFrame.intersects(scrollView.bounds)
+            }
+        }
+        return false
+    }
+    
+    public func findVisibleViewControllerIndex() -> Int? {
+        for i in 0..<scrollingControllers.count {
+            let controllerFrame = frame(for: i)
+            if controllerFrame.intersects(scrollView.bounds) {
+                return i
+            }
+        }
+        return nil
+    }
 }
 
-extension ScrollViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) { }
+extension ScrollViewController: UIScrollViewDelegate {    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        guard let index = findVisibleViewControllerIndex() else { return }
+        scrollViewSelectionDelegate?.didScrollToViewCntroller(with: index)
+    }
+}
+
+protocol ScrollViewSelectionDelegate: class {
+    func didScrollToViewCntroller(with index: Int)
 }
